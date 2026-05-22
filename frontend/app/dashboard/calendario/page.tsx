@@ -15,7 +15,7 @@ const localizer = momentLocalizer(moment);
 const API = "http://localhost:8000/api/v1";
 
 export default function CalendarioPage() {
-  const [eventos, setEventos] = useState([]);
+  const [eventos, setEventos] = useState<any[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [error, setError] = useState("");
