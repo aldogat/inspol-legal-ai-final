@@ -114,6 +114,8 @@ async def multimodal_chat(consulta: Consulta, db: AsyncSession = Depends(get_db)
         
         return {"respuesta": resp}
     except Exception as e:
+        import traceback; print(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=str(e))
         raise HTTPException(500, f"Error: {str(e)}")
 
 @router.get("/historial", response_model=List[MensajeOut])
