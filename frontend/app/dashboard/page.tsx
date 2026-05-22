@@ -40,7 +40,7 @@ export default function DashboardPage() {
   const enviarPregunta = async (texto: string) => {
     setCargandoIA(true); setRespuestaIa("");
     try {
-      const res = await apiFetch(`${API}/chat/multimodal`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consulta: texto }) });
+      const res = await apiFetch(`${API}/chat/mensaje`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consulta: texto }) });
       if (!res.ok) throw new Error("Error");
       setRespuestaIa((await res.json()).respuesta);
     } catch (err: any) { setRespuestaIa("Error: " + err.message); }

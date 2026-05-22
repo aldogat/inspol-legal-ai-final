@@ -42,7 +42,7 @@ export default function ChatPage() {
     setMensajes((prev) => [...prev, tempUserMsg]);
     setInput("");
     try {
-      const res = await apiFetch(`${API}/chat/multimodal`, {
+      const res = await apiFetch(`${API}/chat/mensaje`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ consulta: tempUserMsg.contenido }),
