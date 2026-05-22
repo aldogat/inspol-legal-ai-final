@@ -7,7 +7,7 @@ import { apiFetch } from "@/app/lib/api";
 import toast from "react-hot-toast";
 import { TableSkeleton } from "@/app/components/Skeleton";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+const API = "http://localhost:8000/api/v1";
 const PAGE_SIZE = 10;
 
 export default function ExpedientesPage() {

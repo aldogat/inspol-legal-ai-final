@@ -12,7 +12,7 @@ import "./calendario.css";
 moment.locale("es");
 const localizer = momentLocalizer(moment);
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+const API = "http://localhost:8000/api/v1";
 
 export default function CalendarioPage() {
   const [eventos, setEventos] = useState([]);

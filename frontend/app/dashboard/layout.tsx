@@ -14,6 +14,7 @@ import {
   Moon,
 } from "lucide-react";
 import { useTheme } from "@/app/context/ThemeContext";
+
 const sidebarItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
   { icon: Briefcase, label: "Expedientes", path: "/dashboard/expedientes" },
@@ -24,9 +25,11 @@ const sidebarItems = [
   { icon: BarChart3, label: "Reportes", path: "/dashboard/reportes" },
   { icon: MessageSquare, label: "Chat IA", path: "/dashboard/chat" },
 ];
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex transition-colors">
       <aside className="w-[240px] bg-gray-900 dark:bg-gray-950 border-r border-gray-800 flex flex-col justify-between">

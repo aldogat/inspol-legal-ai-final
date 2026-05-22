@@ -6,7 +6,7 @@ import { Pencil, Trash2, X, AlertTriangle, Sparkles, Upload } from "lucide-react
 import { apiFetch } from "@/app/lib/api";
 import toast from "react-hot-toast";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+const API = "http://localhost:8000/api/v1";
 
 export default function ContratosPage() {
   const [contratos, setContratos] = useState([]);
