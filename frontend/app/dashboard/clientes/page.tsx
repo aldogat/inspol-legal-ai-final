@@ -40,7 +40,7 @@ export default function ClientesPage() {
   const deleteCliente = async (id: number) => {
     if (!confirm("¿Eliminar?")) return;
     try { await apiFetch(`${API}/clientes/${id}`, { method: "DELETE" }); toast.success("Eliminado"); fetchClientes(); }
-    catch (e: any) { toast.error(e(err as any)(err as any)(err as any).message); }
+    catch (e: any) { toast.error(e.message); }
   };
 
   return (
