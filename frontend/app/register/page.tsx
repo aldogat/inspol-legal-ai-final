@@ -14,7 +14,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError("");
     try {
-      await register(email, password, nombre);
+      await register({ email, password, nombre });
     } catch (err: any) {
       setError(err.message);
     }
