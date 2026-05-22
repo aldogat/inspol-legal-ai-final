@@ -21,7 +21,7 @@ from app.models.archivo_contrato import ArchivoContrato
 from app.models.conversacion import Conversacion
 from app.models.historial import HistorialExpediente, HistorialContrato
 from app.core.security import get_password_hash
-from app.core.embeddings import generar_embedding
+# from app.core.embeddings import generar_embedding
 from sqlalchemy import select
 
 async def rebuild():

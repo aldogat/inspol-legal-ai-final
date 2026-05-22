@@ -11,7 +11,7 @@ from app.database import get_db
 from app.models.archivo_contrato import ArchivoContrato
 from app.models.contrato import Contrato
 from app.models.documento_legal import DocumentoLegal
-from app.core.embeddings import generar_embedding
+# from app.core.embeddings import generar_embedding
 
 router = APIRouter()
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "uploads", "contratos")

@@ -9,7 +9,7 @@ import io
 
 from app.database import get_db
 from app.models.documento_legal import DocumentoLegal
-from app.core.embeddings import generar_embedding
+# from app.core.embeddings import generar_embedding
 
 router = APIRouter()
 
