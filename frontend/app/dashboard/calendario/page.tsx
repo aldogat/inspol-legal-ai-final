@@ -132,7 +132,7 @@ export default function CalendarioPage() {
           views={[Views.MONTH, Views.WEEK, Views.DAY]}
           style={{ height: "100%", color: "white" }}
           eventPropGetter={eventStyleGetter}
-          onSelectEvent={(e) => openEditModal(e)}
+          onSelectEvent={(e: any) => openEditModal(e)}
           selectable
           onSelectSlot={openNewModal}
           messages={{
