@@ -14,3 +14,11 @@ def embed_text(text: str):
         "La funcionalidad de embeddings está desactivada. "
         "Consulta con el administrador para habilitarla."
     )
+
+def generar_embedding(texto):
+    """Stub de generar_embedding – no hace nada y advierte."""
+    logger.warning("La función generar_embedding no está disponible en este momento.")
+    raise NotImplementedError(
+        "La funcionalidad de embeddings está desactivada. "
+        "Consulta con el administrador para habilitarla."
+    )
