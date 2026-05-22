@@ -6,7 +6,7 @@ export async function apiFetch<T = any>(
 ): Promise<T> {
   const token = typeof window !== "undefined" ? localStorage.getItem("auth_token") : null;
 
-  // Si el path ya es una URL completa, úsalo directamente; si no, construye la URL
+  // Construir URL completa si no es absoluta
   const url = path.startsWith("http") ? path : `${API_BASE}${path}`;
 
   const res = await fetch(url, {
