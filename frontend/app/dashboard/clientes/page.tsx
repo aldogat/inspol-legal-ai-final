@@ -22,7 +22,7 @@ export default function ClientesPage() {
       const r = await apiFetch(`${API}/clientes/`);
       if (!r.ok) throw new Error("Error al cargar");
       setClientes(await r.json());
-    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any)(err as any).message); }
   };
 
   const onSubmit = async (fd: any) => {
@@ -33,14 +33,14 @@ export default function ClientesPage() {
       if (!res.ok) throw new Error((await res.json()).detail || "Error");
       toast.success(editingId ? "Cliente actualizado" : "Cliente creado");
       fetchClientes(); setModalOpen(false);
-    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any)(err as any).message); }
     finally { setLoading(false); }
   };
 
   const deleteCliente = async (id: number) => {
     if (!confirm("¿Eliminar?")) return;
     try { await apiFetch(`${API}/clientes/${id}`, { method: "DELETE" }); toast.success("Eliminado"); fetchClientes(); }
-    catch (e: any) { toast.error(e(err as any)(err as any).message); }
+    catch (e: any) { toast.error(e(err as any)(err as any)(err as any).message); }
   };
 
   return (

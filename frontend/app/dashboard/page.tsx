@@ -43,7 +43,7 @@ export default function DashboardPage() {
       const res = await apiFetch(`${API}/chat/multimodal`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consulta: texto }) });
       if (!res.ok) throw new Error("Error");
       setRespuestaIa((await res.json()).respuesta);
-    } catch (err: any) { setRespuestaIa("Error: " + err(err as any)(err as any).message); }
+    } catch (err: any) { setRespuestaIa("Error: " + err(err as any)(err as any)(err as any).message); }
     finally { setCargandoIA(false); }
   };
 
