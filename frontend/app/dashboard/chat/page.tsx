@@ -11,7 +11,7 @@ export default function ChatPage() {
     setLoading(true);
     setReply("");
     try {
-      const res = await fetch("/api/v1/chat/mensaje", {
+      const res = await fetch("https://inspol-legal-backend-v2.onrender.com/api/v1/chat/mensaje", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
