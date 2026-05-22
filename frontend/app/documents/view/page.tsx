@@ -1,23 +1,10 @@
-"use client";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
+import DocumentViewInner from "./DocumentViewInner";
 
-export default function DocumentView() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
-  const [content, setContent] = useState("Cargando...");
-
-  useEffect(() => {
-    if (id) {
-      // Aquí puedes cargar el documento desde el backend si lo deseas
-      setContent(`Documento ID: ${id} (simulado)`);
-    }
-  }, [id]);
-
+export default function DocumentViewPage() {
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Vista de Documento</h1>
-      <p>{content}</p>
-    </div>
+    <Suspense fallback={<div>Cargando página...</div>}>
+      <DocumentViewInner />
+    </Suspense>
   );
 }
