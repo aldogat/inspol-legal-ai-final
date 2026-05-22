@@ -28,7 +28,7 @@ export default function ChatPage() {
       if (!res.ok) throw new Error("Error al cargar historial");
       const data = await res.json();
       setMensajes(data);
-    } catch (err) {
+    } catch (err: any) {
       setError((err as any).message);
     }
   };
@@ -52,7 +52,7 @@ export default function ChatPage() {
       // Agregar respuesta del asistente
       const assistantMsg = { id: Date.now() + 1, rol: "assistant", contenido: data.respuesta, created_at: new Date().toISOString() };
       setMensajes((prev) => [...prev, assistantMsg]);
-    } catch (err) {
+    } catch (err: any) {
       setError((err as any).message);
     } finally {
       setLoading(false);
@@ -64,7 +64,7 @@ export default function ChatPage() {
     try {
       await apiFetch(`${API}/chat/historial`, { method: "DELETE" });
       setMensajes([]);
-    } catch (err) {
+    } catch (err: any) {
       setError((err as any).message);
     }
   };

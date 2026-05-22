@@ -26,7 +26,7 @@ export default function DashboardPage() {
       const res = await apiFetch(`${API}/estadisticas/`);
       if (!res.ok) throw new Error("Error");
       setEstadisticas(await res.json());
-    } catch (err) { console.error(err); }
+    } catch (err: any) { console.error(err); }
   };
 
   useEffect(() => {

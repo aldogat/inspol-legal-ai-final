@@ -30,7 +30,7 @@ export default function FinanzasPage() {
       if (!res.ok) throw new Error("Error al cargar transacciones");
       const data = await res.json();
       setTransacciones(Array.isArray(data) ? data : []);
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     }
   };
@@ -41,7 +41,7 @@ export default function FinanzasPage() {
       if (!res.ok) throw new Error("Error al cargar resumen");
       const data = await res.json();
       setResumen(data);
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     }
   };
@@ -83,7 +83,7 @@ export default function FinanzasPage() {
       await fetchTransacciones(filtroTipo);
       await fetchResumen();
       closeModal();
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -96,7 +96,7 @@ export default function FinanzasPage() {
       await apiFetch(`${API}/finanzas/${id}`, { method: "DELETE" });
       setTransacciones(transacciones.filter((t) => t.id !== id));
       fetchResumen();
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
     }
   };
