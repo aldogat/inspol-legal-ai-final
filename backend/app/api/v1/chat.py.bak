@@ -62,7 +62,7 @@ async def multimodal_chat(consulta: Consulta, db: AsyncSession = Depends(get_db)
     
     try:
         # Guardar mensaje del usuario
-        user_msg = Conversacion(user_id=None, rol="user", contenido=consulta.consulta)
+        user_msg = Conversacion(user_id=1, rol="user", contenido=consulta.consulta)
         db.add(user_msg)
         await db.commit()
         
@@ -108,7 +108,7 @@ async def multimodal_chat(consulta: Consulta, db: AsyncSession = Depends(get_db)
         ).choices[0].message.content
         
         # Guardar respuesta
-        assistant_msg = Conversacion(user_id=None, rol="assistant", contenido=resp)
+        assistant_msg = Conversacion(user_id=1, rol="assistant", contenido=resp)
         db.add(assistant_msg)
         await db.commit()
         
