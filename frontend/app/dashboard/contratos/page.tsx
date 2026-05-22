@@ -51,7 +51,7 @@ export default function ContratosPage() {
       toast.success(editingId ? "Contrato actualizado" : "Contrato creado");
       fetchContratos();
       setModalOpen(false);
-    } catch (e: any) { toast.error(e.message); }
+    } catch (e: any) { toast.error(e(err as any).message); }
     finally { setLoading(false); }
   };
 

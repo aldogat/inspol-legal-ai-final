@@ -29,7 +29,7 @@ export default function ChatPage() {
       const data = await res.json();
       setMensajes(data);
     } catch (err) {
-      setError(err.message);
+      setError((err as any).message);
     }
   };
 
@@ -53,7 +53,7 @@ export default function ChatPage() {
       const assistantMsg = { id: Date.now() + 1, rol: "assistant", contenido: data.respuesta, created_at: new Date().toISOString() };
       setMensajes((prev) => [...prev, assistantMsg]);
     } catch (err) {
-      setError(err.message);
+      setError((err as any).message);
     } finally {
       setLoading(false);
     }
@@ -65,7 +65,7 @@ export default function ChatPage() {
       await apiFetch(`${API}/chat/historial`, { method: "DELETE" });
       setMensajes([]);
     } catch (err) {
-      setError(err.message);
+      setError((err as any).message);
     }
   };
 
