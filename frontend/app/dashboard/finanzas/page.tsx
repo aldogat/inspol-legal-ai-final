@@ -8,7 +8,7 @@ import { apiFetch } from "@/app/lib/api";
 const API = "http://localhost:8000/api/v1";
 
 export default function FinanzasPage() {
-  const [transacciones, setTransacciones] = useState([]);
+  const [transacciones, setTransacciones] = useState<any[]>([]);
   const [resumen, setResumen] = useState({ total_ingresos: 0, total_gastos: 0, balance: 0, total_transacciones: 0 });
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState(null);

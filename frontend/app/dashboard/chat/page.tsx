@@ -8,7 +8,7 @@ import "moment/locale/es";
 const API = "http://localhost:8000/api/v1";
 
 export default function ChatPage() {
-  const [mensajes, setMensajes] = useState([]);
+  const [mensajes, setMensajes] = useState<any[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

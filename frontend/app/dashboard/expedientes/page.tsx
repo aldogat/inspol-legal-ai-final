@@ -11,13 +11,13 @@ const API = "http://localhost:8000/api/v1";
 const PAGE_SIZE = 10;
 
 export default function ExpedientesPage() {
-  const [expedientes, setExpedientes] = useState([]);
+  const [expedientes, setExpedientes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [saving, setSaving] = useState(false);
   const [historialOpen, setHistorialOpen] = useState(false);
-  const [historial, setHistorial] = useState([]);
+  const [historial, setHistorial] = useState<any[]>([]);
   const [numSeleccionado, setNumSeleccionado] = useState("");
   const [page, setPage] = useState(0);
   const { register, handleSubmit, reset, setValue } = useForm();
@@ -30,7 +30,7 @@ export default function ExpedientesPage() {
       const r = await apiFetch(`${API}/expedientes/?skip=${page * PAGE_SIZE}&limit=${PAGE_SIZE}`);
       if (!r.ok) throw new Error("Error");
       setExpedientes(await r.json());
-    } catch (e: any) { toast.error(e(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
     finally { setLoading(false); }
   };
 
@@ -40,7 +40,7 @@ export default function ExpedientesPage() {
       setHistorial(await r.json());
       setNumSeleccionado(num);
       setHistorialOpen(true);
-    } catch (e: any) { toast.error(e(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
   };
 
   const onSubmit = async (fd: any) => {
@@ -51,14 +51,14 @@ export default function ExpedientesPage() {
       if (!res.ok) throw new Error((await res.json()).detail || "Error");
       toast.success(editingId ? "Actualizado" : "Creado");
       fetchExpedientes(); setModalOpen(false);
-    } catch (e: any) { toast.error(e(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
     finally { setSaving(false); }
   };
 
   const deleteExpediente = async (id: number) => {
     if (!confirm("¿Eliminar?")) return;
     try { await apiFetch(`${API}/expedientes/${id}`, { method: "DELETE" }); toast.success("Eliminado"); fetchExpedientes(); }
-    catch (e: any) { toast.error(e(err as any).message); }
+    catch (e: any) { toast.error(e(err as any)(err as any).message); }
   };
 
   return (

@@ -9,8 +9,8 @@ import toast from "react-hot-toast";
 const API = "http://localhost:8000/api/v1";
 
 export default function ContratosPage() {
-  const [contratos, setContratos] = useState([]);
-  const [clientes, setClientes] = useState([]);
+  const [contratos, setContratos] = useState<any[]>([]);
+  const [clientes, setClientes] = useState<any[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,7 @@ export default function ContratosPage() {
       toast.success(editingId ? "Contrato actualizado" : "Contrato creado");
       fetchContratos();
       setModalOpen(false);
-    } catch (e: any) { toast.error(e(err as any).message); }
+    } catch (e: any) { toast.error(e(err as any)(err as any).message); }
     finally { setLoading(false); }
   };
 
